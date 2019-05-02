@@ -38,11 +38,19 @@ public class MainActivity extends AppCompatActivity {
 
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setLoadWithOverviewMode(true);
 
-        myWebView.setWebViewClient(new WebViewClient(){
-            public boolean shouldOverrideUrlLoading(WebView view, String url){
+        myWebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
                 return true;
+            }
+
+            public void onPageFinished(WebView view, String url) {
+                //myWebView.clearHistory();
+                myWebView.clearCache(true);
+                super.onPageFinished(view, url);
             }
         });
 
@@ -89,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        myWebView.loadUrl("https://m.naver.com");
+        myWebView.loadUrl("http://192.168.0.2:8080/smartDiaper");
     }
 
     @Override
@@ -102,4 +110,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+
 }
