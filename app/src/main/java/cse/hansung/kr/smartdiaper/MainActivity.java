@@ -18,6 +18,9 @@ import com.google.firebase.iid.InstanceIdResult;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MyMainActivity";
+
     private WebView myWebView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +50,10 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
 
+
             public void onPageFinished(WebView view, String url) {
-                //myWebView.clearHistory();
                 myWebView.clearCache(true);
+                myWebView.clearFormData();
                 super.onPageFinished(view, url);
             }
         });
