@@ -69,8 +69,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         NotificationManager notificationManager;
 
-
-        Log.d(TAG,"ggg1gggg");
       /*  PendingIntent intent;*/
 
 
@@ -86,7 +84,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
         Intent intent = new Intent(this, MainActivity.class);
-
 // The stack builder object will contain an artificial back stack for the
 // started Activity.
 // This ensures that navigating backward from the Activity leads out of
@@ -133,8 +130,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         }
         notificationManager.notify(0, builder.build());
-
-        Log.d(TAG,"ggggggg");
         /*Intent intent = new Intent(this, MainActivity.class);
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

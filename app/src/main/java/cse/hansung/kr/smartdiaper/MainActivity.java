@@ -22,17 +22,21 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MyMainActivity";
 
     private WebView myWebView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        JobSchedulerStart.start(this);
+
         FirebaseMessaging.getInstance().subscribeToTopic("all");
 
-        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( MainActivity.this ,new OnSuccessListener<InstanceIdResult>() {
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(MainActivity.this, new OnSuccessListener<InstanceIdResult>() {
             @Override
             public void onSuccess(InstanceIdResult instanceIdResult) {
                 String mToken = instanceIdResult.getToken();
-                Log.d("Token",mToken);
+                Log.d("Token", mToken);
             }
         });
 
@@ -65,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         .setTitle("Alert")
                         .setMessage(message)
                         .setPositiveButton(android.R.string.ok,
-                                new AlertDialog.OnClickListener(){
+                                new AlertDialog.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         result.confirm();
                                     }
@@ -83,13 +87,13 @@ public class MainActivity extends AppCompatActivity {
                         .setTitle("Confirm")
                         .setMessage(message)
                         .setPositiveButton("Yes",
-                                new AlertDialog.OnClickListener(){
+                                new AlertDialog.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         result.confirm();
                                     }
                                 })
                         .setNegativeButton("No",
-                                new AlertDialog.OnClickListener(){
+                                new AlertDialog.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         result.cancel();
                                     }
@@ -103,17 +107,15 @@ public class MainActivity extends AppCompatActivity {
 
         myWebView.loadUrl("http://192.168.0.2:8080/smartDiaper");
     }
-
-    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK){
-            if(myWebView.canGoBack()){
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (myWebView.canGoBack()) {
                 myWebView.goBack();
                 return false;
             }
         }
         return super.onKeyDown(keyCode, event);
     }
-
-
 }
+
+
