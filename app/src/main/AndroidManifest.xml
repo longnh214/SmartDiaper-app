@@ -37,17 +37,13 @@
             </intent-filter>
         </service>
         <service
-            android:name=".NotificationJobFireBaseService"
+            android:name=".CycleJsonActivity"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
             </intent-filter>
         </service>
-        <receiver
-            android:name=".AlarmBroadcastReceiver"
-            android:enabled="true"
-            android:exported="true"></receiver>
 
     </application>
 
