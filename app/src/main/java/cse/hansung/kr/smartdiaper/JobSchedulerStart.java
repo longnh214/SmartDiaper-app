@@ -20,7 +20,7 @@ public class JobSchedulerStart {
                 .setTag("TSLetterNotification")        // 태그 등록
                 .setRecurring(true) //재활용
                 .setLifetime(Lifetime.FOREVER) //다시켜도 작동을 시킬껀지?
-                .setTrigger(Trigger.executionWindow(10, 20)) //트리거 시간
+                .setTrigger(Trigger.executionWindow(1800, 1800)) //트리거 시간
                 .setReplaceCurrent(true)
                 .setRetryStrategy(RetryStrategy.DEFAULT_EXPONENTIAL)
                 .build();

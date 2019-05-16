@@ -12,7 +12,7 @@ public class CycleJsonActivity extends JobService{
 
     public boolean onStartJob(JobParameters job) {
 
-        ConnectServer.requestGet("http://192.168.200.159:8080/smartDiaper/cycle","key");
+        ConnectServer.requestGet("http://192.168.0.2:8080/smartDiaper/cycle","key");
 
             handler.sendEmptyMessage(0);
 

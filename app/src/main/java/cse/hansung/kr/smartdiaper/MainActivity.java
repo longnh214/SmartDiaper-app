@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        myWebView.loadUrl("http://192.168.200.159:8080/smartDiaper");
+        myWebView.loadUrl("http://192.168.0.2:8080/smartDiaper");
     }
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {

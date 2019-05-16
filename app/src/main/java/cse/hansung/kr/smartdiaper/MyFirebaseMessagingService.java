@@ -7,6 +7,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.util.Log;
@@ -98,10 +99,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         0,
                         PendingIntent.FLAG_UPDATE_CURRENT
                 );
-
+        int icon = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? R.drawable.ic_stat_older : R.mipmap.ic_launcher;
         Notification.Builder builder = new Notification.Builder(this)
 
-                .setSmallIcon(R.drawable.ic_launcher_background) // 아이콘 설정하지 않으면 오류남
+                .setSmallIcon(icon) // 아이콘 설정하지 않으면 오류남
+
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.diaper))
 
                 .setDefaults(Notification.DEFAULT_ALL)
 
@@ -130,56 +133,5 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         }
         notificationManager.notify(0, builder.build());
-        /*Intent intent = new Intent(this, MainActivity.class);
-
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent,
-
-                PendingIntent.FLAG_ONE_SHOT);
-
-
-
-        String channelId = getString(R.string.app_name);
-
-        Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-
-        NotificationCompat.Builder notificationBuilder =
-
-                new NotificationCompat.Builder(this, channelId)
-
-                        .setSmallIcon(R.mipmap.ic_launcher)
-
-                        .setContentTitle("Smart Diaper")
-
-                        .setContentText(messageBody)
-
-                        .setAutoCancel(true)
-
-                        .setSound(defaultSoundUri)
-
-                        .setContentIntent(pendingIntent);
-
-
-
-        NotificationManager notificationManager =
-
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-
-            String channelName = getString(R.string.app_name);
-
-            NotificationChannel channel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH);
-
-            notificationManager.createNotificationChannel(channel);
-
-        }
-
-        notificationManager.notify(0, notificationBuilder.build());
-*/
     }
 }
-
