@@ -99,10 +99,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         0,
                         PendingIntent.FLAG_UPDATE_CURRENT
                 );
+
+        Notification.BigTextStyle bigTextStyle = new Notification.BigTextStyle(
+                new Notification.Builder(MyFirebaseMessagingService.this));
+
         int icon = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? R.drawable.ic_stat_older : R.mipmap.ic_launcher;
         Notification.Builder builder = new Notification.Builder(this)
 
                 .setSmallIcon(icon) // 아이콘 설정하지 않으면 오류남
+
+                .setStyle(bigTextStyle)
 
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.diaper))
 
