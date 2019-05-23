@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="keycateappversion"
+        android:title="앱버전" >
+        <Preference
+            android:key="keyappversion"
+            android:title="1.0.0" />
+    </PreferenceCategory>
+
+    <!--<PreferenceCategory-->
+        <!--android:title="IP 설정">-->
+
+        <!--<EditTextPreference-->
+            <!--android:key="ipaddress"-->
+            <!--android:title="IP 주소"-->
+            <!--android:defaultValue="192.168.0.1"-->
+            <!--/>-->
+
+    <!--</PreferenceCategory>-->
+    <PreferenceCategory
+        android:title="알림 주기 설정">
+
+            <SwitchPreference
+                android:key="cycletime"
+                android:title="알림 주기 설정"
+                android:defaultValue="true"
+                />
+
+            <ListPreference
+                android:defaultValue="10초"
+                android:dependency="cycletime"
+                android:key="cycletimelist"
+                android:title="알림 주기 시간"
+                android:entries="@array/CycleTime"
+                android:entryValues="@array/CycleTimeValue"
+                android:negativeButtonText="@null"
+                android:positiveButtonText="@null"
+                />
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="engineerteam"
+        android:title="개발팀" >
+        <Preference
+            android:key="engineer"
+            android:title="Hanggies" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="CycleTime">
+        <item>10초</item>
+        <item>30초</item>
+        <item>1분</item>
+        <item>3분</item>
+    </string-array>
+
+    <string-array name="CycleTimeValue">
+        <item>10</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+    </string-array>
+</resources>
